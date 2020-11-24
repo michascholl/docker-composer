@@ -1,10 +1,10 @@
+import pytest
+
 import importlib
 import os
 import types
 from pathlib import Path
 from typing import Iterable
-
-import pytest
 
 import docker_composer
 

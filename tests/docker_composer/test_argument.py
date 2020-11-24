@@ -3,8 +3,8 @@ import pytest
 from docker_composer._utils.argument import (
     Argument,
     _collect_arguments,
-    _get_type,
     _from_line_has_sep,
+    _get_type,
 )
 
 
