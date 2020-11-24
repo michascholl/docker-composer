@@ -1,8 +1,11 @@
 [tool.poetry]
 name = "docker-composer"
-version = "0.8.0"
+version = "0.8.1"
 description = "Use docker-compose from within Python"
 authors = ["Micha <mschoell@gmx.com>"]
+readme = "README.md"
+homepage = "https://github.com/michascholl/docker-composer"
+repository = "https://github.com/michascholl/docker-composer"
 license = "Apache-2.0"
 packages = [
     { include = "docker_composer", from = "src" },
