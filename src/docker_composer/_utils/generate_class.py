@@ -32,6 +32,7 @@ def _version(prog: str) -> str:
     )
 
 
+@lru_cache()
 def get_help_message(subcommand: str = "") -> str:
     """Obtain the help message for subcommand from docker-compose."""
     args = [arg for arg in ["docker-compose", subcommand, "--help"] if arg]
