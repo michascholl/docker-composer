@@ -101,12 +101,10 @@ class DockerBaseRunner:
         """
         cmd = self._call_cmd(args)
         logger.info("# {}", " ".join(cmd))
-        p = subprocess.run(
+        return subprocess.Popen(
             cmd,
             stdin=stdin,
             stdout=stdout,
             stderr=stderr,
             **kwargs,
         )
-        logger.debug("Returned from {}: {}", cmd[0], p.returncode)
-        return p
