@@ -5,7 +5,7 @@ import pytest
 from _pytest.fixtures import FixtureRequest
 
 
-@pytest.mark.parametrize("dir", ("src", "tests"))
+@pytest.mark.parametrize("dir_name", ("src", "tests"))
 def test_black(dir_name: str, request: FixtureRequest):
     # adjust base_dir if test file is moved.
     base_dir = Path(request.fspath.dirname).parent
