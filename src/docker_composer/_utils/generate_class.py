@@ -1,14 +1,14 @@
 import os
 import subprocess
 from collections import defaultdict
-from functools import reduce, lru_cache
+from functools import lru_cache, reduce
 from operator import add
-from typing import List, Mapping, Union, Iterator, Tuple, Set, Optional, Iterable
+from typing import Iterable, Iterator, List, Mapping, Optional, Set, Tuple, Union
 
 import black
 from loguru import logger
 
-from docker_composer._utils.argument import parse_dc_argument, Argument
+from docker_composer._utils.argument import Argument, parse_dc_argument
 
 
 @lru_cache(None)

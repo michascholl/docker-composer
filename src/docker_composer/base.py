@@ -1,7 +1,7 @@
 import subprocess
 from functools import reduce
 from operator import add
-from typing import List, Iterator, Iterable, Optional
+from typing import Iterable, Iterator, List, Optional
 
 import attr
 from loguru import logger

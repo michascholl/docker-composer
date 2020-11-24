@@ -1,4 +1,4 @@
-from typing import List, Iterator, Type, Any, Tuple, Iterable, Optional
+from typing import Any, Iterable, Iterator, List, Optional, Tuple, Type
 
 import attr
 from loguru import logger
