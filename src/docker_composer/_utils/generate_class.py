@@ -3,7 +3,7 @@ import subprocess
 from collections import defaultdict
 from functools import reduce, lru_cache
 from operator import add
-from typing import List, Mapping, Union, Iterator, Tuple, Set, Optional
+from typing import List, Mapping, Union, Iterator, Tuple, Set, Optional, Iterable
 
 import black
 from loguru import logger
@@ -52,7 +52,7 @@ def parse_help(msg: str) -> Tuple[Mapping[str, List[str]], List[Argument]]:
     return sections, arguments
 
 
-def _flatten(lists: Iterator[list]):
+def _flatten(lists: Iterable[list]):
     """Flatten an iterable of lists"""
     return reduce(add, lists, [])
 

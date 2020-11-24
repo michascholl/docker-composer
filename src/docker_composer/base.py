@@ -1,7 +1,7 @@
 import subprocess
 from functools import reduce
 from operator import add
-from typing import List, Iterator, Iterable, Optional, Mapping, Any, Tuple
+from typing import List, Iterator, Iterable, Optional
 
 import attr
 from loguru import logger
@@ -52,7 +52,7 @@ class DockerBaseRunner:
 
     def call(
         self,
-        *args: Tuple[str],
+        *args: str,
         stdin=None,
         stdout=None,
         stderr=None,
@@ -84,11 +84,11 @@ class DockerBaseRunner:
 
     def Popen(
         self,
-        *args: Tuple[str],
+        *args: str,
         stdin=None,
         stdout=None,
         stderr=None,
-        **kwargs: Mapping[str, Any],
+        **kwargs,
     ) -> subprocess.Popen:
         """get an Instance of `subprocess.Popen`
 
