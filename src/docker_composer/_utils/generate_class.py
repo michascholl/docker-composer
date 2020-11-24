@@ -3,12 +3,24 @@ import subprocess
 from collections import defaultdict
 from functools import lru_cache, reduce
 from operator import add
+from pathlib import Path
 from typing import Iterable, Iterator, List, Mapping, Optional, Set, Tuple, Union
 
 import black
+import isort
+from isort.exceptions import ISortError
 from loguru import logger
 
 from docker_composer._utils.argument import Argument, parse_dc_argument
+
+
+@lru_cache()
+def project_root():
+    for path in Path(__file__).parents:
+        if "pyproject.toml" in (p.name for p in path.iterdir()):
+            logger.debug("Project Path root: {}", path)
+            return path
+    raise EnvironmentError("No pyproject.toml found in path hierarchy")
 
 
 @lru_cache(None)
@@ -165,6 +177,10 @@ class {class_name}(DockerBaseRunner):
 ''',
         level=level,
     )
+    try:
+        res = isort.code(res, config=isort.Config(settings_path=project_root()))
+    except ISortError as exc:
+        logger.exception(exc)
     try:
         return black.format_str(res, mode=black.Mode())
     except Exception as exc:
